@@ -1,0 +1,20 @@
+{
+  "name": "bonus-less",
+  "version": "1.0.0",
+  "description": "Less Compilation of Bonusapp Components",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt-contrib-less": "^1.4.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-contrib-less": "^1.4.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "jit-grunt": "^0.10.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  },
+  "author": "Sukhdeep Singh",
+  "license": "ISC"
+}

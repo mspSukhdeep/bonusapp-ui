@@ -1,0 +1,117 @@
+.hiw{
+    &__sctn{
+        padding: 25px 15px 30px 15px;
+
+        &:nth-child(even){
+            background-color: rgba(242, 243, 245, 0.6);
+        }
+        &--wht{
+            border-top: 1px solid @border-color;
+            background-color: @color-white !important;
+        }
+    }
+    &__ttl{
+        color: @fg-color;
+        font-size: @font-size-4xl;
+        margin-bottom: 50px;
+        &--clr{
+            color: @color-green;
+        }
+    }
+    &__stps{
+        &-item{
+            float: left;
+            width: 195px;
+            margin: 0px 16px;
+            &--4{
+                width: 150px;
+                margin: 0px 10px;
+            }
+        }
+        &-icon{
+            height: 24px;
+            width: 24px;
+            padding: 20px;
+            border-radius: 32px;
+            background-color: rgba(242, 243, 245, 0.6);
+            img{
+                max-width: 100%;
+            }
+        }
+        &-cnt {
+            width: 40px;
+            background-color: @color-green;
+            border-radius: 3px;
+            font-size: @font-size-2xs;
+            margin-top: -8px;
+            font-weight: @bold;
+            padding: 0px 3px;
+            color: @color-white;
+            text-transform: uppercase;
+        }
+        &-sub{
+            font-size: @font-size-s;
+            color: @fg-color-light;
+            font-weight: @bold;
+            margin-top: 12px;
+            text-transform: uppercase;
+        }
+        &-dscrptn{
+            margin: 10px 0px 40px;
+            font-size: @font-size-s;
+            color: @fg-color-light;
+            line-height: 22px;
+        }
+    }
+    &__rdm{
+        &-icon{
+            height: 42px;
+        }
+    }
+    &__rvws{
+        &-txt{
+            margin-top: 20px;
+            float: left;
+            width: 100%;
+            text-align: left;
+            font-size: @font-size-s;
+            line-height: 22px;
+            color: @fg-color-light;
+            min-height: 88px;
+        }
+        &-usr{
+            margin-left: 15px;
+            width: 235px;
+            float: left;
+            &-name{
+                text-align: left;
+                font-size: 15px;
+                color: @color-green;
+                margin-bottom: 4px;
+            }
+        }
+        &-img{
+            height: 42px;
+            width: 42px;
+            float: left;
+            border-radius: 21px;
+        }
+        &-item{
+            width: 293px;
+            float: left;
+            padding: 15px;
+            margin: 8px;
+            border-radius: 3px;
+            border: 1px solid @border-color;
+            background-color: @color-white;
+        }
+    }
+    &__faq{
+        &-lnk{
+            text-align: left;
+            color: @fg-color-light;
+            font-size: @font-size;
+            margin-top: 30px;
+        }
+    }
+}

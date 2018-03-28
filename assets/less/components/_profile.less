@@ -1,0 +1,146 @@
+.prfl{
+    padding: 30px;
+    &__rght{
+        float: right;
+        margin-top: 17px;
+    }
+    &__btn{
+        &-rdm{
+            .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/icon/gift.png', 14px);
+            background-position: left 12px center;
+            padding-left: 36px;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+    }
+    &-cb{
+        display: inline-block;
+        font-size: @font-size-2xs;
+        color: @color-green;
+        margin-right: 42px;
+        vertical-align: middle;
+        text-align: center;
+        text-transform: uppercase;
+
+        &__txt{
+            font-weight: @semi-bold;
+        }
+        &__amt{
+            .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/icon/coin.png', 15px);
+            background-position: left center;
+            padding-left: 19px;
+            font-size: @font-size-2xl;
+            margin-top: 5px;
+            font-weight: @bold;
+            display: inline-block;
+        }
+        &--grey{
+            color: @fg-color-light;
+            .prfl-cb__amt{
+                color: @color-grey-dark;
+                .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/icon/coin_gs.png', 15px);
+            }
+
+        }
+    }
+    &__sdbr{
+        float: left;
+        width: 287px;
+    }
+    &-wrpr{
+        float: left;
+        width: 712px;
+        border-left: 1px solid @border-color;
+        min-height: 392px;
+    }
+    &-sctn{
+        padding: 15px;
+        &__ttl{
+            font-size: @font-size-xl;
+            font-weight: @bold;
+            float: left;
+        }
+        &__fltrs{
+            float: right;
+            margin: 3px 18px 0 0;
+            .user-select();
+        }
+    }
+    &-tbl{
+        clear: both;
+        margin-top: 15px;
+
+        &__hd{
+            font-size: @font-size-s;
+            background-color: @bg-color;
+            border-top: 1px solid @border-color;
+            border-bottom: 1px solid @border-color;
+            padding: 13px;
+            font-weight: @bold;
+            text-transform: capitalize;
+        }
+        &__date{
+            float: left;
+            width: 20%;
+            &--l{
+                width: 25%;
+            }
+        }
+        &__cb{
+            float: left;
+            width: 17%;
+            margin-right: 5%;
+            text-align: center;
+        }
+        &__entry{
+            float: left;
+            width: 42%;
+            &--l{
+                width: 52%;
+            }
+        }
+        &__clicks{
+            float: left;
+            width: 17%;
+            margin-left: 5%;
+        }
+        &__exp-date{
+            float: left;
+            width: 14%;
+            margin-right: 2%;
+        }
+        &__dscrptn{
+            color: @fg-color-light;
+            font-size: @font-size-xs;
+            margin-top: 4px;
+
+        }
+        &__sts{
+            color: @fg-color-light;
+            font-size: @font-size-xs;
+            margin-top: 4px;
+
+            &--pndng{
+                &:before{
+                    content: '';
+                    width: 8px;
+                    height: 8px;
+                    margin: 5px 5px 0 0;
+
+                    background-color: @color-golden;
+                    border-radius: 50%;
+                    float: left;
+                }
+            }
+        }
+        &__row{
+            padding: 20px 13px;
+            color: @fg-color-light;
+            text-transform: capitalize;
+
+            & + &{
+                border-top:1px solid @border-color;
+            }
+        }
+    }
+}

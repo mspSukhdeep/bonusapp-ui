@@ -1,0 +1,55 @@
+.wrpr{
+    width: @wrapper-width;
+    margin: 0 auto;
+    box-shadow: @box-shadow;
+}
+
+.sctn{
+    border-bottom: 1px solid @border-color;
+    background-color: @color-white;
+}
+
+.algn{
+    &-left{
+        float: left;
+    }
+    &-rght{
+        float: right;
+    }
+}
+
+.clearfix {
+    zoom: 1;
+    &:before, &:after{
+        display: block;
+        visibility: hidden;
+        overflow: hidden;
+        width: 0;
+        height: 0;
+        content: '\0020';
+    }
+    &:after{
+        clear: both;
+    }
+}
+
+.txt{
+    &--bold{
+        font-weight: @bold;
+    }
+    &--red{
+        color: @color-red;
+    }
+    &--grn{
+        color: @color-green;
+    }
+}
+
+.to-top{
+    display: none !important;
+}
+
+.text-link{
+    color: @color-blue;
+    cursor: pointer;
+}

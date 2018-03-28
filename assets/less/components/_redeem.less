@@ -1,0 +1,131 @@
+.rdm{
+    &-sctn{
+        &__ttl{
+            font-size: @font-size-2xl;
+            font-weight: @bold;
+        }
+    }
+    &__msg-box{
+        margin-top: 20px;
+    }
+    &-item{
+        width: 25%;
+        float: left;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: .25s ease-in-out;
+        padding: 10px 20px 20px 20px;
+        box-sizing: border-box;
+
+        &-wrpr{
+            margin-top: 20px;
+        }
+        &__img{
+            max-width: 49px;
+            max-height: 42px;
+            .absolute-center();
+
+            &-wrpr{
+                height: 100px;
+                position: relative;
+            }
+        }
+        &__txt{
+            text-align: center;
+            font-weight: @bold;
+            font-size: @font-size-xs;
+        }
+        &:hover{
+            background-color: @bg-color;
+        }
+    }
+    &-wdgt{
+        background-color: @bg-color-light;
+        border-radius: 3px;
+        border: 1px solid @border-color;
+        margin-top: 20px;
+        
+        &__inr{
+            padding: 15px;
+        }
+        &__ttl{
+            font-size: @font-size-xl;
+            font-weight: @bold;
+        }
+        &__dscrptn{
+            margin-top: 8px;
+            font-size: @font-size-xs;
+            line-height: 20px;
+            color: @color-grey;
+        }
+        &__rwrd{
+            &-ttl{
+                font-weight: @bold;
+                font-size: @font-size-xs;
+                margin-top: 22px;
+                margin-bottom: 8px;
+            }
+            &-item{
+                padding: 10px;
+                text-align: center;
+                float: left;
+                border-radius: 3px;
+                color: @fg-color-light;
+                border: 1px solid @color-grey;
+                cursor: pointer;
+                position: relative;
+                transition: .25s ease-in-out;
+
+                &:hover{
+                    // font-weight: @semi-bold;
+                }
+                &--actv{
+                    border-color: @color-green;
+                    color: @color-green;
+                    font-weight: @bold;
+                }
+                &--dsbld{
+                    color: #c4c4c4;
+                    border-color: #bbb;
+                    &:hover{
+                        cursor: not-allowed;
+                    }
+                }
+                 & + &{
+                     margin-left: 10px;
+                 }
+            }
+            &-val{
+                display: block;
+                font-size: @font-size;
+            }
+            &-txt{
+                display: block;
+                font-size: @font-size-2xs;
+            }
+        }
+        &__cb{
+            color: @color-green;
+            font-weight: @bold;
+            font-size: @font-size-3xl;
+            .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/icon/coin.png', 22px);
+            background-position: left center;
+            padding-left: 27px;
+
+            &-ttl{
+                font-weight: @bold;
+                font-size: @font-size-2xs;
+                margin: 25px 0 8px 0;
+            }
+        }
+        &__ftr{
+            padding: 12px;
+            text-align: center;
+            background-color: #e4e9ec;
+        }
+        &__btn{
+            font-size: @font-size-xs;
+            padding: 11px 84px;
+        }
+    }
+}

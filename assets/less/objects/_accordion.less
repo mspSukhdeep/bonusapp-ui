@@ -1,0 +1,36 @@
+.acrdn {
+    border-bottom: 1px solid @border-color;
+    padding: 20px 0;
+    .user-select();
+
+    &__qstn {
+        font-size: @font-size;
+        font-weight: @semi-bold;
+        cursor: pointer;
+        color: @fg-color;
+        &:after{
+            float: right;
+            display: block;
+            height: 12px;
+            content: '';
+            width: 12px;
+            margin: 6px 10px 0px 0px;
+            background-image: url(http://assets.mspcdn.net/msp-ui/icons/arrow-down-grey-small@2x.png);
+            background-repeat: no-repeat;
+            background-size: 12px auto;
+            transition: .2s ease-in-out;
+        }
+        &--expnd{
+            &:after{
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__answr {
+        margin-top: 15px;
+        display: none;
+        font-size: @font-size;
+        color: @fg-color-light;
+    }
+}
