@@ -1,0 +1,49 @@
+.inpt {
+    border: 0;
+    font-size: @font-size;
+    width: 100%;
+    outline: none;
+    color: @fg-color;
+    background: none;
+
+    &-lbl {
+        font-size: 0.85em;
+        font-weight: @semi-bold;
+        color: @color-grey-dark;
+        visibility: hidden;
+        margin: 12px 0 8px 0;
+        display: block;
+        &--vsbl{
+            visibility: visible;
+        }
+    }
+
+    &-err {
+        position: absolute;
+        top: 66px;
+        color: #d50000;
+        background: url(http://assets.mspcdn.net/f_auto/bonus_in/icon/alert.png) no-repeat center right / 13px;
+        width: 100%;
+        font-size: @font-size-xs;
+    }
+
+    &-wrpr {
+        position: relative;
+        padding-bottom: 8px;
+        border-top:1px solid transparent;
+        border-bottom: 1px solid @border-color;
+        transition: 0.2s ease-in-out;
+        &--err{
+            border-bottom-color: #d50000;
+        }
+        &--focus{
+            .inpt-lbl{
+                visibility: visible;
+                color: @color-green;
+                font-weight: @semi-bold;
+            }
+            border-top:none;
+            border-bottom: 2px solid @color-green;
+        }
+    }
+}

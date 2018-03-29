@@ -16,6 +16,7 @@
         transition: .25s ease-in-out;
         padding: 10px 20px 20px 20px;
         box-sizing: border-box;
+        .user-select();
 
         &-wrpr{
             margin-top: 20px;
@@ -44,9 +45,87 @@
         border-radius: 3px;
         border: 1px solid @border-color;
         margin-top: 20px;
-        
+        position: relative;
+        display: none;
+        &__bnk-frm{
+            margin-bottom: 15px;
+        }
+        &__err{
+            &-box{
+                position: absolute;
+                width: 100%;
+                left: 0;
+                bottom: 90px;
+                color: @color-red;
+                display: none;
+            }
+        }
+        &__star{
+            width: 48px;
+            height: 48px;
+            margin: 0 auto;
+            .image-2x('http://assets.mspcdn.net/f_auto/bonus_in/icon/star.png', 48px);
+            animation: rotate 3s ease-in-out 1;
+            position: relative;
+        }
+        &__scss{
+            padding: 25px 0;
+            text-align: center;
+
+            &-msg{
+                font-size: @font-size-3xl;
+                font-weight: @bold;
+                margin-top: 15px;
+            }
+            &-txt{
+                margin-top: 8px;
+            }
+            &-item{
+                margin-top: 4px;
+                font-weight: @bold;
+            }
+            &-ntfctn{
+                margin-top: 36px;
+            }
+        }
+        &__thumb{
+            position: absolute;
+            .absolute-center();
+            width: 4px;
+            height: 4px;
+            animation: zoomIn 3s ease-in-out 1 forwards;
+        }
+        &__otp{
+            text-align: center;
+            padding: 20px;
+            padding: 80px 0 45px 0;
+            &-inpt{
+                border: 0;
+                background:none;
+                border-bottom: 1px solid #dfe1e8;
+                font-size: @font-size-xl;
+                color: @fg-color-light;
+                padding: 5px;
+                letter-spacing: 20px;
+                font-weight: @bold;
+                width: 175px;
+                margin-bottom: 20px;
+            }
+        }
+        &__arw{
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 13px solid transparent;
+            border-right: 13px solid transparent;
+            border-top: 19px solid #e4e9ec;
+            background: none;
+            left: 72px;
+            transition: .25s ease-in-out;
+        }
         &__inr{
             padding: 15px;
+            min-height: 245px;
         }
         &__ttl{
             font-size: @font-size-xl;
@@ -75,9 +154,11 @@
                 cursor: pointer;
                 position: relative;
                 transition: .25s ease-in-out;
+                .user-select();
 
-                &:hover{
-                    // font-weight: @semi-bold;
+                &:not(&--actv):not(&--dsbld):hover{
+                    color: fade(@color-green, 80%);
+                    border-color: fade(@color-green, 80%);
                 }
                 &--actv{
                     border-color: @color-green;
@@ -102,6 +183,7 @@
             &-txt{
                 display: block;
                 font-size: @font-size-2xs;
+                margin-top: 3px;
             }
         }
         &__cb{

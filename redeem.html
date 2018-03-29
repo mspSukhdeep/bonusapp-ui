@@ -3,34 +3,103 @@
         <div class="clearfix">
             <div class="rdm-sctn__ttl">Redeem Cashback</div>
             <div class="rdm-wdgt">
-                <div class="rdm-wdgt__inr">
-                    <div class="rdm-wdgt__ttl">Transfer cashback to Paytm account</div>
-                    <div class="rdm-wdgt__dscrptn">Paytm is one of the biggest recharge site in India that delivers instant online prepaid recharge & mobile bill payment solutions to end users.</div>
-                    <div class="rdm-wdgt__rwrd clearfix">
-                        <div class="rdm-wdgt__rwrd-ttl">
-                            SELECT YOUR REWARD
-                        </div>
-                        <div class="rdm-wdgt__rwrd-item rdm-wdgt__rwrd-item--actv">
-                            <span class="rdm-wdgt__rwrd-val">₹250</span>
-                            <span class="rdm-wdgt__rwrd-txt">Paytm cash</span>
-                        </div>
-                        <div class="rdm-wdgt__rwrd-item">
-                            <span class="rdm-wdgt__rwrd-val">₹500</span>
-                            <span class="rdm-wdgt__rwrd-txt">Paytm cash</span>
-                        </div>
-                        <div class="rdm-wdgt__rwrd-item rdm-wdgt__rwrd-item--dsbld">
-                            <span class="rdm-wdgt__rwrd-val">₹1,000</span>
-                            <span class="rdm-wdgt__rwrd-txt">Paytm cash</span>
+                <div class="js-rdm-stp-1">
+                    <div class="rdm-wdgt__inr">
+                        <div class="rdm-wdgt__ttl js-wdgt-ttl">Transfer cashback to Paytm account</div>
+                        <div class="rdm-wdgt__dscrptn js-wdgt-dscrptn">Paytm is one of the biggest recharge site in India that delivers instant online prepaid recharge & mobile bill payment solutions to end users.</div>
+                        <div class="rdm-wdgt__rwrd clearfix">
+                            <form class="rdm-wdgt__bnk-frm">
+                                <div class="rdm-wdgt__bnk-wrpr">
+                                    <div class="inpt-wrpr">
+                                        <label class="inpt-lbl">
+                                            Account Holder Name
+                                        </label>
+                                        <input class="inpt js-bnk-name" placeholder="Account Holder Name" value="">
+                                        <div class="inpt-err"></div>
+                                    </div>
+                                    <div class="inpt-wrpr">
+                                        <label class="inpt-lbl">Account Number</label>
+                                        <input type="number" class="inpt js-bnk-num" placeholder="Account Number" value="">
+                                        <div class="inpt-err"></div>
+                                    </div>
+                                    <div class="inpt-wrpr">
+                                        <label class="inpt-lbl">Withdrawl Amount</label>
+                                        <input type="number" class="inpt js-bnk-amt" placeholder="Withdrawl Amount" value="">
+                                        <div class="inpt-err"></div>
+                                    </div>
+                                    <div class="inpt-wrpr">
+                                        <label class="inpt-lbl">IFSC Code</label>
+                                        <input class="inpt js-bnk-ifsc" placeholder="IFSC Code" value="">
+                                        <div class="inpt-err"></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="hide">
+                                <div class="rdm-wdgt__rwrd-ttl">
+                                    SELECT YOUR REWARD
+                                </div>
+                                <div class="js-rdm-optn-wrpr clearfix">
+                                    <div class="rdm-wdgt__rwrd-item rdm-wdgt__rwrd-item--actv">
+                                        <span class="rdm-wdgt__rwrd-val">₹250</span>
+                                        <span class="rdm-wdgt__rwrd-txt">Cash reward</span>
+                                    </div>
+                                </div>
+                                <div class="rdm-wdgt__cb-ttl">
+                                    Cashback Deductable
+                                </div>
+                                <div class="rdm-wdgt__cb js-rdm-cb"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="rdm-wdgt__cb-ttl">
-                        Cashback Deductable
+                    <div class="rdm-wdgt__ftr">
+                        <div class="btn btn--l rdm-wdgt__btn js-rdm-prcd">PROCEED</div>
                     </div>
-                    <div class="rdm-wdgt__cb">200</div>
                 </div>
-                <div class="rdm-wdgt__ftr">
-                    <div class="btn btn--l rdm-wdgt__btn">PROCEED</div>
+                <div class="js-rdm-stp-2 hide">
+                    <div class="rdm-wdgt__inr">
+                        <div class="rdm-wdgt__ttl">Enter One-Time Password (OTP)</div>
+                        <div class="rdm-wdgt__dscrptn">
+                            A six digit OTP has been sent to your registered mobile number:
+                            <span class="txt--bold txt--blk js-user-mob">9876543210</span>
+                        </div>
+                        <div class="rdm-wdgt__otp">
+                            <input class="rdm-wdgt__otp-inpt js-otp-inpt" type="text" maxlength="6" placeholder="••••••" />
+                            <div class="text-link">Resent OTP</div>
+                            <div class="rdm-wdgt__err-box js-otp-fail">
+                                OTP Verfification Failed
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rdm-wdgt__ftr">
+                        <div class="btn btn--dsbld btn--l rdm-wdgt__btn js-rdm-submt-otp">SUBMIT OTP</div>
+                    </div>
                 </div>
+                <div class="js-rdm-stp-3 hide">
+                    <div class="rdm-wdgt__inr">
+                        <div class="rdm-wdgt__scss">
+                            <div class="rdm-wdgt__star">
+                                <img class="rdm-wdgt__thumb" src="http://assets.mspcdn.net/f_auto/bonus_in/icon/verified_thumbs.png" />
+                            </div>
+                            <div class="rdm-wdgt__scss-msg">
+                                Cheers!
+                            </div>
+                            <div class="rdm-wdgt__scss-txt">
+                                You have successfully redeemed
+                            </div>
+                            <div class="rdm-wdgt__scss-item js-rdm-item-name">
+                                ₹250 Paytm cash
+                            </div>
+                            <div class="rdm-wdgt__scss-ntfctn">
+                                An email regarding your redemption has been sent to <span class="txt--bold js-user-email">email@domain.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rdm-wdgt__ftr">
+                        <div class="btn btn--l rdm-wdgt__btn js-link" data-view="passbook">SHOW CASHBACK PASSBOOK</div>
+                    </div>
+
+                </div>
+                <div class="rdm-wdgt__arw"></div>
             </div>
             <div class="rdm-item-wrpr clearfix">
                 <div class="rdm-item js-rdm-item" data-type="bank">
