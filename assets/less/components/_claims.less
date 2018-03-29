@@ -1,0 +1,163 @@
+.clms {
+    &__sctn {
+        padding: 25px 15px 30px 15px;
+    }
+    &__ttl {
+        color: @fg-color;
+        font-size: @font-size-xl;
+        margin-bottom: 15px;
+        font-weight: @bold;
+        &-sub {
+            font-size: @font-size-xs;
+            color: @fg-color;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: @bold;
+        }
+    }
+    &__hstry {
+        font-size: @font-size-xs;
+        float: right;
+        color: @color-blue;
+    }
+    &__note {
+        font-size: @font-size-xs;
+        color: @fg-color-light;
+        line-height: @font-size-2xl;
+        padding: 12px 14px;
+        background-color: rgba(245, 166, 35, 0.1);
+        border-radius: @border-radius;
+        border: 1px solid rgba(245, 166, 35, 0.2);
+        margin-bottom: 30px;
+    }
+    &__item {
+        &-wrpr {
+            border-bottom: 1px solid @border-color;
+            padding: 20px 0;
+            &--actv {
+                .clms__item-ttl {
+                    font-weight: @bold;
+                }
+            }
+            &:hover {
+                cursor: pointer;
+                margin: 0px -15px;
+                box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
+                padding: 20px 15px;
+            }
+        }
+        &-ttl {
+            font-size: @font-size;
+            color: @fg-color;
+        }
+        &-dscrptn {
+            font-size: @font-size-s;
+            color: @fg-color-light;
+            margin-top: 8px;
+        }
+        &-form {
+            border-radius: @border-radius;
+            border: 1px solid @border-color;
+            background-color: @bg-color-light;
+            padding: 15px;
+            margin: 15px 0px 10px;
+            &--ttl {
+                font-size: @font-size;
+                color: @fg-color-light;    
+            }
+            &:hover {
+                cursor: unset;
+            }
+        }
+        &-scs {
+            background-color: @bg-color-light;
+            border: 1px solid @border-color;
+            border-radius: @border-radius;
+            padding: 15px 12px 15px 36px;
+            line-height: 17px;
+            margin-top: 15px;
+            background-image: url('https://doypaxk1e2349.cloudfront.net/icons/confirm-tick.png');
+            background-size: 18px;
+            background-repeat: no-repeat;
+            background-position: 12px center;
+        }
+    }
+}
+
+.form {
+    &__cntnr {
+        width: 300px;
+    }
+    &__inpt {
+        box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+        border: none;
+        padding: 10px;
+        font-size: @font-size-xs;
+        color: @fg-color;
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: @border-radius;
+        transition: box-shadow 0.2s ease-in;
+        &:focus {
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        &-lbl {
+            font-size: @font-size-2xs;
+            color: @fg-color-light;
+            font-weight: @bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        &-err {
+            color: @fg-color-red;
+            font-size: @font-size-2xs;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+        &-file {
+            &:after {
+                content: '';
+                position: absolute;
+                width: 18px;
+                opacity: 0.3;
+                height: 18px;
+                background-image: url(http://cdn.onlinewebfonts.com/svg/img_551060.png);
+                background-repeat: no-repeat;
+                top: 28px;
+                background-size: 18px;
+                right: 10px;
+            }
+        }
+        &-date {
+            &:after {
+                content: '';
+                position: absolute;
+                width: 16px;
+                opacity: 0.3;
+                height: 16px;
+                background-image: url(http://simpleicon.com/wp-content/uploads/Calendar-2.png);
+                background-repeat: no-repeat;
+                top: 28px;
+                background-size: 16px;
+                right: 10px;
+            }
+        }
+        &-wrpr {
+            position: relative;
+            margin: 15px 0 10px;
+            &--cmplsry {
+                .form__inpt-lbl:after {
+                    content: '*';
+                    margin-left: 5px;
+                    color: @color-red;
+                }
+            }
+            &--err {
+            }
+            &:hover {
+                cursor: unset;
+            }
+        }
+    }
+}
