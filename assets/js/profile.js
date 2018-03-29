@@ -161,6 +161,8 @@ var modal = {
                     "item": ".rdm-item-wrpr .rdm-item",
                     "arrow": ".rdm-wdgt__arw",
                     "option": ".js-rdm-optn",
+                    "bankWrapper": ".js-bnk-wrpr",
+                    "rewardWrapper": ".js-rwrd-wrpr",
                     "optionWrapper": ".js-rdm-optn-wrpr",
                     "widgetTitle": ".js-wdgt-ttl",
                     "widgetDescription": ".js-wdgt-dscrptn",
@@ -183,7 +185,7 @@ var redeemCashback = function() {
     var dfd = $.Deferred(),
         params,
         meta = modal.store.redemption.meta;
-        
+
     if(meta.current.type==="bank"){
         params = {
             "source": "mobile_pwa",
@@ -378,9 +380,18 @@ var renderRedeemWidget = function(view) {
         if (!rStore.meta.current.offerID) {
             $(selector.proceedButton).addClass("btn--dsbld");
         }
+        else{
+            $(selector.proceedButton).removeClass("btn--dsbld");
+        }
+
+        $(selector.rewardWrapper).show();
+        $(selector.bankWrapper).hide();
     } else {
         //Handle Bank Case Here
+        $(selector.rewardWrapper).hide();
+        $(selector.bankWrapper).show();
 
+        $(selector.proceedButton).removeClass("btn--dsbld");
     }
 }
 
