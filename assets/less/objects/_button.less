@@ -11,6 +11,7 @@
     border: 0;
     box-shadow: @box-shadow;
     text-transform: uppercase;
+    position: relative;
 
     &--r{
         border-radius: 50px;
@@ -18,6 +19,33 @@
     &--s{
         font-size: @font-size-2xs;
         padding: 8px 10px;
+    }
+    &--dsbld{
+        cursor: not-allowed;
+
+        &:after{
+            content: '';
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: @color-white;
+            opacity: .6;
+        }
+    }
+    &--ldng{
+        &:after{
+            content: '';
+             display: block;
+             position: absolute;
+             width: 100%;
+             height: 100%;
+             background: rgba(255,255,255,.5) url(https://assets.mspcdn.net/v2/bonus_in/icon/loader.svg) no-repeat center center / 25px;
+             top:0;
+             left: 0;
+             z-index: 1;
+        }
     }
 }
 
