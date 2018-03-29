@@ -7,7 +7,7 @@ var modal = {
         "pageViewMap": {
             "passbook": "/profile",
             "activity": "/profile/track",
-            "claims": "/profile/claims",
+            "claims": "/",
             "how-it-works": "/profile/how-it-works",
             "faq": "/profile/faq",
             "contact": "/profile/contact",
@@ -17,7 +17,7 @@ var modal = {
             "passbook": "https://www.bonusapp.in/me/page_info.php?function=passbook&format=2&page=1",
             "activity": "https://www.bonusapp.in/me/page_info.php?function=activity_details&format=2&page=1",
             "profile": "https://www.bonusapp.in/me/page_info.php?function=profile&format=2&page=1",
-            "claims": "/profile/claims.html",
+            "claims": "claims.html",
             "how-it-works": "/profile/how-it-works.html",
             "faq": "/profile/faq.html",
             "contact": "/profile/contact.html",
