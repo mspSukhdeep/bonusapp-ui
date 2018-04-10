@@ -1,0 +1,111 @@
+.pop-up
+{
+    &__ovrly
+    {
+        position: fixed;
+        z-index: 2999;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        -webkit-transition: all .3s ease-out;
+           -moz-transition: all .3s ease-out;
+             -o-transition: all .3s ease-out;
+                transition: all .3s ease-out;
+
+        opacity: 1;
+        background: rgba(0,0,0,.7);
+    }
+    &__cntnr
+    {
+        position: fixed;
+        z-index: 3001;
+        top: 20%;
+        right: 0;
+        left: 0;
+
+        overflow: hidden;
+
+        margin: 0 auto;
+
+        -webkit-transition: all .3s ease-out;
+           -moz-transition: all .3s ease-out;
+             -o-transition: all .3s ease-out;
+                transition: all .3s ease-out;
+
+        opacity: 1;
+        border-radius: @border-radius;
+        &.not-opq
+        {
+            top: -100px;
+        }
+    }
+    &__cls-btn
+    {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+
+        cursor: pointer;
+
+        color: @bg-color;
+        &:hover
+        {
+            color: @bg-color-light;
+        }
+    }
+    &__lft-pnl
+    {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        overflow: hidden;
+
+        width: 250px;
+        padding: 20px;
+
+        color: white;
+        background-color: #3c3c3c;
+        .pop-up__lgn &,
+        .pop-up__sgnp &
+        {
+            animation: scrollUp 10s linear infinite;
+
+            background-image: url('//doypaxk1e2349.cloudfront.net/img/login_bg.png');
+        }
+        &__img
+        {
+            display: block;
+
+            margin: auto;
+            margin-top: 50px;
+            &-tag
+            {
+                font-size: 16px;
+                font-weight: 600;
+
+                margin-top: 20px;
+
+                text-align: center;
+            }
+        }
+        &__info
+        {
+            line-height: 1.5;
+
+            margin-top: 40px;
+
+            list-style-type: disc;
+            &-pt
+            {
+                margin-left: 20px;
+                & + &
+                {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}

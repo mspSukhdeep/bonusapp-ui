@@ -1,0 +1,116 @@
+.home {
+    &__top {
+        margin-top: 5px;
+    }
+
+    &__click-1 {
+        padding: 30px 20px 20px;
+        background-color: fade(@color-blue, 10%);
+        border: 0;
+    }
+
+    &-sctn {
+        &__main {
+            padding: 30px 20px 20px;
+            background: url('https://assets.mspcdn.net/f_auto/bonus_in/bg_yellow.png')  repeat left top / 320px;
+        }
+
+        &__sdbr {
+            float: left;
+            width: 320px;
+
+            .sctn__ttl {
+                color: #4180cb;
+            }
+        }
+        &__ofr{
+            float: left;
+            margin-left: 20px;
+            width: 620px;
+            .sctn__ttl{
+                color: #ed4454;
+            }
+        }
+    }
+}
+
+.str {
+    &-crd {
+        padding: 20px;
+        border-radius: 3px;
+        width: 132px;
+        text-align: center;
+        transition: 0.25s ease-in-out;
+
+        &-wrpr {
+            margin-top: 20px;
+        }
+
+        &__img {
+            max-width: 100%;
+            max-height: 100%;
+            .absolute-center();
+
+            &-wrpr {
+                position: relative;
+                height: 32px;
+            }
+        }
+
+        &__txt {
+            margin-top: 20px;
+            font-size: @font-size-xs;
+            color: @color-green;
+        }
+
+        & + & {
+            margin-left: 20px;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    &-pplr{
+        margin-top: 15px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 3px;
+
+        &__img{
+            .absolute-center();
+            max-width: 100%;
+            max-height: 100%;
+            &-wrpr{
+                position: relative;
+                width: 85px;
+                height: 35px;
+                float: left;
+            }
+        }
+        &__top{
+            border-bottom: 1px dashed @border-color;
+            padding: 15px;
+
+        }
+        &__btm{
+            padding: 12px 15px;
+        }
+        &__cb{
+            float: left;
+            font-size: @font-size-xs;
+            color: @color-green;
+            font-weight: @bold;
+        }
+        &__ofrs{
+            float: right;
+            font-size: @font-size-xs;
+        }
+        &__btn{
+            float: right;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+}

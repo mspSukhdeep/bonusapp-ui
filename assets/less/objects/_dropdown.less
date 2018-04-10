@@ -1,0 +1,223 @@
+.drpdwn-wdgt {
+    position: absolute;
+    right: 0;
+
+    float: right;
+    display: none;
+    overflow: hidden;
+
+    border-radius: @border-radius;
+    margin: 8px 0;
+
+    line-height: 30px;
+
+    color: @fg-color-light;
+
+    cursor: pointer;
+
+    .ellipsis();
+    &__menu {
+        height: 30px - 2*@border-width;
+
+        font-weight: @semi-bold;
+        line-height: 30px - 2*@border-width;
+        width: 52px;
+        float: right;
+    }
+    &__menu-link {
+        color: @fg-color-light;
+        &:hover {
+            text-decoration: none;
+
+            color: @color-red;
+        }
+    }
+    &__menu-img-wrpr {
+        position: relative;
+
+        float: left;
+
+        width: 34px;
+        height: 34px;
+
+        text-align: center;
+        overflow: hidden;
+
+        &.user-img {
+            width: 34px;
+            border-radius: 50%;
+
+            .image-2x('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/account-user.png', 34px, auto);
+
+            &--loggedin {
+                .image-2x('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/loggedin-user.png', 34px, auto);
+            }
+        }
+    }
+    &__menu-img {
+        display: block;
+
+        max-width: 100%;
+        max-height: 100%;
+
+        vertical-align: middle;
+
+        .absolute-center();
+    }
+    &__down-icon {
+        float: right;
+
+        width: 9px;
+        height: 100%;
+
+        .image-2x('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/arrow-down-white-small.png', 9px, auto);
+        background-position: center;
+    }
+    &__item {
+        display: block;
+
+        height: 30px;
+        padding: 0 10px 0 15px;
+        &:hover {
+            color: @color-blue;
+        }
+    }
+    &--l {
+        .drpdwn-wdgt__menu {
+            height: 34px;
+            line-height: 34px;
+        }
+    }
+    &.loggedIn {
+        display: block;
+        &:hover {
+            .user-dtls {
+                display: block;
+            }
+        }
+    }
+}
+
+ .user{
+        &-dtls{
+            border: 1px solid @border-color;
+            border-radius: @border-radius;
+            margin: 44px 2px 3px 3px;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            display: none;
+            opacity: 0;
+            animation: 0.25s both fadeInDown;
+            &:before {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: -18px;
+                right: 24px;
+                background-color: transparent;
+                border: 8px solid transparent;
+                border-bottom: 10px solid @border-color;
+            }
+
+            &:after {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: -16px;
+                right: 24px;
+                background-color: transparent;
+                border: 8px solid transparent;
+                border-bottom: 10px solid #fff;
+            }
+        }
+        &-nm-wrpr{
+            padding: 5px 10px 10px 10px;
+            line-height: 20px;
+        }
+        &-nm{
+            color: @fg-color;
+            font-weight: 600;
+        }
+}
+
+.user-link {
+    border-top: 1px solid @border-color;
+    border-bottom: 1px solid @border-color;
+    position: relative;
+
+    &__icon-rcnt-view,
+    &__icon-svd-prdcts,
+    &__icon-rvws,
+    &__icon-rwrds,
+    &__icon-rfr {
+        float: left;
+
+        width: 30px;
+        height: 100%;
+
+        background-position: left center;
+    }
+    &__icon-rcnt-view {
+        .image-2x('//doypaxk1e2349.cloudfront.net/icons/eye-grey.png', 20px, auto);
+    }
+    &__rcnt-view {
+        .preload('//doypaxk1e2349.cloudfront.net/icons/eye-red.png');
+        &:hover .user-link__icon-rcnt-view {
+            .image-2x('//doypaxk1e2349.cloudfront.net/icons/eye-red.png', 20px, auto);
+        }
+    }
+    &__icon-svd-prdcts {
+        .image-2x('//doypaxk1e2349.cloudfront.net/icons/heart-grey.png', 16px, auto);
+    }
+    &__svd-prdcts {
+        .preload('//doypaxk1e2349.cloudfront.net/icons/heart-red.png');
+        &:hover .user-link__icon-svd-prdcts {
+            .image-2x('//doypaxk1e2349.cloudfront.net/icons/heart-red.png', 16px, auto);
+        }
+    }
+    &__icon-rvws {
+        background-position: left center;
+
+        .image-2x('//doypaxk1e2349.cloudfront.net/icons/reviews-grey-small.png', 18px, auto);
+    }
+    &__rvws {
+        .preload('//doypaxk1e2349.cloudfront.net/icons/reviews-red-small.png');
+        &:hover .user-link__icon-rvws {
+            background-position: left center;
+
+            .image-2x('//doypaxk1e2349.cloudfront.net/icons/reviews-red-small.png', 18px, auto);
+        }
+    }
+    &__icon-rwrds {
+        background-position: left center;
+
+        .image-2x('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/cashbackicon_menu-inactive.png', 18px, auto);
+    }
+    &__rwrds {
+        .preload('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/cashbackicon_menu-hover.png');
+        &:hover .user-link__icon-rwrds {
+            background-position: left center;
+
+            .image-2x('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/cashbackicon_menu-hover.png', 18px, auto);
+        }
+    }
+    &__icon-rfr {
+        background-position: left center;
+
+        .image-2x('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/refer_earn_grey_icon.png', 16px, auto);
+    }
+    &__rfr {
+        .preload('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/refer_earn_blue_icon.png');
+        &:hover .user-link__icon-rfr {
+            background-position: left center;
+
+            .image-2x('https://assets.mspcdn.net/fl_lossy/msp-ui/icons/refer_earn_blue_icon.png', 16px, auto);
+        }
+    }
+}
+
+.user-lgt {
+    background-color: #fff
+}

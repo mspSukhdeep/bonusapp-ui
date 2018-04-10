@@ -13,6 +13,31 @@
     text-transform: uppercase;
     position: relative;
 
+    &--inv{
+        border: 1px solid @color-green;
+        color: @color-green;
+        background-color: @color-white;
+        box-shadow: none;
+        font-size: @font-size-2xs;
+        padding: 10px;
+    }
+
+    &--arw{
+        &:after{
+            content: '';
+            float: right;
+            background: url('https://assets.mspcdn.net/f_auto/bonus_in/right-arw-grn.png') no-repeat left 7px center / auto 10px;
+            width: 15px;
+            height: 13px;
+            transition: .1s ease-in-out;
+        }
+        &:hover{
+            &.btn--arw:after{
+                transform: translateX(3px);
+            }
+        }
+    }
+
     &--r{
         border-radius: 50px;
     }
@@ -46,6 +71,13 @@
              left: 0;
              z-index: 1;
         }
+    }
+    &--no-bg{
+        background: none !important;
+        box-shadow: none;
+    }
+    &:hover{
+        text-decoration: none;
     }
 }
 

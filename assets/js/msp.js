@@ -470,8 +470,8 @@ var MSP = {
     // Defaults are below
     var defaults = {
         mCycleItem: 'img', // the item which will be slided
-        animTime: 200, // time taken in animation in milliseconds
-        waitTime: 10000, // time for a slide to wait in milliseconds
+        animTime: 300, // time taken in animation in milliseconds
+        waitTime: 3000, // time for a slide to wait in milliseconds
         isAutoPlay: false, //  isAutoPlay can be false for manual control
         direction: 'left', // direction can be 'left' of 'right'
         slideBullets: true, //show the slide bullets
@@ -549,6 +549,7 @@ var MSP = {
 
 
             $elem.find('.mCycleItemWrapper').eq(0).addClass('mCycleItemCurrent');
+            $elem.find('.mCycleItemWrapper').eq(1).addClass('mPartialSlide');
 
             if (this.options.slideBullets) {
                 $elem.append('<div class="mCycleSlideBullets"></div>');
@@ -620,6 +621,7 @@ var MSP = {
                 $slides = $(this.element).find(".mCycleItemWrapper"),
                 isForcedSlide = (this.forcedNextSlide === -1),
                 $nextSlide = isForcedSlide ? getNextSlide($currentSlide, direction) : $slides.eq(this.forcedNextSlide),
+                $partialSlide = getNextSlide($nextSlide, direction),
                 prevSlideLeftOffset,
                 nextSlideClass;
             switch (direction) {
@@ -638,6 +640,8 @@ var MSP = {
 
             $nextSlide.addClass(nextSlideClass);
 
+            // $partialSlide.addClass("mPartialSlide");
+
             var that = this;
 
             this._animating = true;
@@ -646,8 +650,8 @@ var MSP = {
 
             // making current slide the prev slide
             $currentSlide.css({
-                '-webkit-transition': 'transform' + (that.options.animTime) / 1000 + 's',
-                'transition': 'transform ' + (that.options.animTime) / 1000 + 's',
+                '-webkit-transition': 'transform' + (that.options.animTime) / 1000 + 's ease-in-out',
+                'transition': 'transform ' + (that.options.animTime) / 1000 + 's ease-in-out',
                 '-webkit-transform': 'translateX(' + prevSlideLeftOffset + ')',
                 '-ms-transform': 'translateX(' + prevSlideLeftOffset + ')',
                 'transform': 'translateX(' + prevSlideLeftOffset + ')'
@@ -655,12 +659,20 @@ var MSP = {
 
             // making next slide the current slide
             $nextSlide.css({
-                '-webkit-transition': 'transform ' + (that.options.animTime) / 1000 + 's',
-                'transition': 'transform ' + (that.options.animTime) / 1000 + 's',
+                '-webkit-transition': 'transform ' + (that.options.animTime) / 1000 + 's ease-in-out',
+                'transition': 'transform ' + (that.options.animTime) / 1000 + 's ease-in-out',
                 '-webkit-transform': 'translateX(0)',
                 '-ms-transform': 'translateX(0)',
                 'transform': 'translateX(0)'
-            });
+            }).removeClass("mPartialSlide");
+
+            $partialSlide.css({
+                '-webkit-transition': 'transform ' + (that.options.animTime) / 1000 + 's ease-in-out',
+                'transition': 'transform ' + (that.options.animTime) / 1000 + 's ease-in-out',
+                '-webkit-transform': 'translateX(100%)',
+                '-ms-transform': 'translateX(100%)',
+                'transform': 'translateX(100%)'
+            })
 
             //IE Fix
             if (MSP.utils.browser.name === "MSIE" && MSP.utils.browser.version < 9) {
@@ -1460,10 +1472,6 @@ function update_ui() {
             '<div class="hdr__user" style="display: block">',
             '<div class="hdr__user-lgn btn btn--s btn--no-bg js-lgn" data-page="login">Login</div>',
             '<div class="hdr__user-sign-up btn btn--s btn--grn js-lgn" data-page="signup">Sign Up</div>',
-            '<div class="hdr__call-out js-lylty-hdr js-open-link" data-open-link="/cashback/more-details/?utm_source=Loyalty-Header">',
-            '<div class="hdr__call-out-ttl">' + coinText + '</div>',
-            '<div class="hdr__call-out-sbttl">' + coinSubText + '</div>',
-            '</div>',
             '</div>'
         ].join('');
 
@@ -2081,7 +2089,7 @@ $doc.on('mouseenter', '.js-tltp', function() {
     $('body').append('<div class="tltp ' + tooltipDirection + '">' + data + '</div>');
     $tooltip = $('.tltp');
 
-    if ($(this).data('tooltip').length > 50) {
+    if ($(this).data('tooltip').length > 50 || true) {
         $tooltip.css({ 'font-size': '11px', 'line-height': '1.5' });
     }
 

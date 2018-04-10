@@ -1,4 +1,12 @@
 .clms {
+    &__tbl{
+        margin: 0 -15px 0 -15px;
+    }
+    &__btn{
+        padding: 11px 72px;
+        font-size: @font-size-xs;
+        margin-top: 10px;
+    }
     &__sctn {
         padding: 25px 15px 30px 15px;
     }
@@ -34,6 +42,9 @@
         &-wrpr {
             border-bottom: 1px solid @border-color;
             padding: 20px 0;
+            transition: .25s ease-in-out;
+            .user-select();
+
             &--actv {
                 .clms__item-ttl {
                     font-weight: @bold;
@@ -61,17 +72,20 @@
             background-color: @bg-color-light;
             padding: 15px;
             margin: 15px 0px 10px;
+            display: none;
             &--ttl {
                 font-size: @font-size;
-                color: @fg-color-light;    
+                color: @fg-color-light;
             }
             &:hover {
                 cursor: unset;
             }
         }
-        &-scs {
+        &-msg {
+            display: none;
             background-color: @bg-color-light;
             border: 1px solid @border-color;
+            color: @fg-color-light;
             border-radius: @border-radius;
             padding: 15px 12px 15px 36px;
             line-height: 17px;
@@ -80,11 +94,21 @@
             background-size: 18px;
             background-repeat: no-repeat;
             background-position: 12px center;
+            &--err{
+                background-image: url('https://assets.mspcdn.net/f_auto/bonus_in/icon/warning.png');
+                background-color: fade(@color-red, 10%);
+                border-color: fade(@color-red, 20%);
+                padding-left: 45px;
+            }
         }
     }
 }
 
 .form {
+    &__slct{
+        text-transform: uppercase;
+    }
+
     &__cntnr {
         width: 300px;
     }
@@ -114,15 +138,16 @@
             position: absolute;
             right: 0px;
             top: 0px;
+            display: none;
         }
         &-file {
             &:after {
                 content: '';
                 position: absolute;
                 width: 18px;
-                opacity: 0.3;
+                opacity: 0.4;
                 height: 18px;
-                background-image: url(http://cdn.onlinewebfonts.com/svg/img_551060.png);
+                background-image: url(https://assets.mspcdn.net/f_auto,c_scale,w_72/bonus_in/icon/attachment.png);
                 background-repeat: no-repeat;
                 top: 28px;
                 background-size: 18px;
@@ -134,9 +159,8 @@
                 content: '';
                 position: absolute;
                 width: 16px;
-                opacity: 0.3;
                 height: 16px;
-                background-image: url(http://simpleicon.com/wp-content/uploads/Calendar-2.png);
+                background-image: url(https://assets.mspcdn.net/f_auto/bonus_in/icon/calendar.png);
                 background-repeat: no-repeat;
                 top: 28px;
                 background-size: 16px;
@@ -153,7 +177,13 @@
                     color: @color-red;
                 }
             }
-            &--err {
+            &--err{
+                .form__inpt{
+                    box-shadow: 0px 0px 3px rgba(204,0,0,0.5);
+                }
+                .form__inpt-err{
+                    display: block;
+                }
             }
             &:hover {
                 cursor: unset;

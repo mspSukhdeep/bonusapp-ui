@@ -1,0 +1,249 @@
+// Footer settings:
+@bg-color-ftr-grey: #e7e8eb;
+@footer-component-width: 1000px;
+@quicklink-col-width: 180px;
+
+// _component_footer.less
+.ftr {
+    background-color: @bg-color-ftr-grey;
+    color: @fg-color-light;
+
+    &__lylty {
+        background-color: @color-green;
+        color: @bg-color;
+
+        &__cntnt-wrpr {
+            width: @footer-component-width;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        &__info-wrpr,
+        &__eml-wrpr,
+        &__stats-wrpr {
+            float: left;
+        }
+
+        &__info-wrpr {
+            min-height: 48px;
+            padding-left: 60px;
+
+            background: url('https://assets.mspcdn.net/w_96/bonus_in/logo/large/coin_colour.png') left center / 48px no-repeat;
+        }
+
+        &__info-hdr {
+            text-transform: uppercase;
+            font-weight: @semi-bold;
+        }
+
+        &__eml-wrpr {
+            margin-left: 30px;
+            padding: 5px 0;
+            position: relative;
+
+            &-sbmt {
+                width: 39px;
+                height: 39px;
+                content: '';
+                position: absolute;
+                display: block;
+                right: 0;
+                cursor: pointer;
+                top: 5px;
+                transition: right 0.25s ease-in;
+
+                .image-2x('https://assets.mspcdn.net/msp-ui/icons/btn-arw-black.png', 6px, auto);
+                background-position: center;
+            }
+            &:hover &-sbmt {
+                right: -4px;
+            }
+        }
+
+        &__eml-inpt {
+            padding: 10px 39px 10px 12px;
+            width: 200px;
+            font-size: @font-size;
+        }
+
+        &__stats {
+            &-cnt {
+                font-size: @font-size-l;
+                font-weight: @semi-bold;
+            }
+
+            &-info {
+                font-size: @font-size;
+            }
+
+            &-wrpr {
+                padding-left: 52px;
+                float: right;
+
+                .image-2x('https://assets.mspcdn.net/msp-ui/icons/large/man.png', 42px, 42px);
+                background-position: left center;
+            }
+        }
+
+        &__view-cshbk {
+            float: right;
+            margin: 7px 0;
+        }
+
+        &__txt-link {
+            margin: 0 5px;
+            cursor: pointer;
+            font-weight: @semi-bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__cntnt-wrpr {
+        width: @footer-component-width;
+        margin: 0 auto;
+    }
+
+    &__promo {
+        padding: 30px 0;
+        border-bottom: 1px solid @color-grey-dark;
+
+        &__clmn {
+            margin-right: 130px;
+            padding-left: 45px;
+            float: left;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &__hdr {
+                font-weight: @semi-bold;
+            }
+        }
+
+        &__prdcts {
+            .image-2x('https://assets.mspcdn.net/msp-ui/icons/large/genuine_product.png', 35px, auto);
+        }
+
+        &__chrgs {
+            .image-2x('https://assets.mspcdn.net/msp-ui/icons/large/money-tag.png', 35px, auto);
+        }
+
+        &__sfty {
+            .image-2x('https://assets.mspcdn.net/msp-ui/icons/large/safety_shield_gray.png', 35px, auto);
+        }
+
+        &__prdcts,
+        &__chrgs,
+        &__sfty {
+            background-position: left center;
+        }
+    }
+
+    &__lnks {
+        padding: 30px 0;
+
+        &__clmn {
+            width: @quicklink-col-width;
+            margin-left: 60px;
+            float: left;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &--2 {
+                width: @quicklink-col-width * 2;
+            }
+
+            &__hdr {
+                text-transform: capitalize;
+                font-weight: @semi-bold;
+                margin-bottom: 10px;
+            }
+
+            &__vrtcl {
+                width: @quicklink-col-width;
+                float: left;
+            }
+
+            &__lnks {
+                text-decoration: none;
+                width: 100%;
+                display: block;
+                float: left;
+                color: @fg-color-light;
+                transition: color .15s ease-in;
+                line-height: 1.9;
+                font-size: @font-size;
+
+                &:hover {
+                    text-decoration: none;
+                    color: @fg-color;
+                }
+            }
+        }
+
+        &__mblapps {
+            float: right;
+            margin-left: 0;
+            width: 135px;
+
+            .ftr__lnks__clmn__vrtcl {
+                width: 135px;
+            }
+
+            .ftr__lnks__clmn__img {
+                width: 135px;
+            }
+        }
+    }
+
+    &__cmpny-info {
+        padding: 30px 0;
+
+        &__left {
+            float: left;
+        }
+
+        &__logo {
+            display: block;
+            width: 183px;
+            margin-bottom: 6px;
+        }
+
+        &__rght {
+            float: right;
+            padding-top: 34px;
+        }
+
+        &__mdwthlv {
+            vertical-align: middle;
+            font-size: @font-size;
+        }
+
+        &__cpyrght {
+            font-size: @font-size;
+        }
+    }
+
+    .hrt-symbl {
+        color: @fg-color-red;
+    }
+    .indian-flag {
+        vertical-align: middle;
+        height: @font-size;
+        margin-left: 3px;
+    }
+}
+
+.bottomad {
+    width: @footer-component-width;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px 0;
+    box-shadow: 0 0 0 1px @border-color;
+}

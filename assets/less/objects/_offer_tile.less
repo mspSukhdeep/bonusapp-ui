@@ -1,0 +1,239 @@
+.ofr-tile{
+    padding: 20px;
+    &-wrpr{
+        margin-top: 15px;
+        background-color: @color-white;
+        border-radius: 3px;
+        box-shadow: 0 2px 3px rgba(0,0,0,.1);
+    }
+    &__icn{
+        width: 24px;
+        height: 24px;
+        vertical-align: middle;
+        &-txt{
+            display: inline-block;
+            vertical-align: middle;
+            font-size: @font-size-xs;
+            margin-left: 2px;
+        }
+    }
+    &__ttl{
+        margin-top: 15px;
+        color: @fg-color-light;
+        font-size: @font-size-l;
+    }
+    &__cb{
+        margin-top: 9px;
+        color: @color-green;
+        font-weight: @bold;
+        background: url('https://assets.mspcdn.net/f_auto/bonus_in/icon/coin.png') no-repeat left center / 18px;
+        padding-left: 26px;
+    }
+    &__btm{
+        margin-top: 22px;
+    }
+
+    &__expry{
+        float: left;
+        color: @fg-color-light;
+        font-size: @font-size-2xs;
+        margin-top: 21px;
+    }
+
+    &__cpn{
+        float: right;
+        margin-right: 15px;
+        font-size: @font-size-xs;
+        padding: 9px 0;
+        width: 180px;
+        text-align: center;
+        color: @color-blue;
+        font-weight: @bold;
+        border-bottom: 1px dashed @color-grey;
+        background: url(https://assets.mspcdn.net/f_auto/bonus_in/web/scissor.png) no-repeat left center / 10px;
+        cursor: pointer;
+        position: relative;
+        min-height: 16px;
+        &--cpd{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: fade(@color-white, 70%);
+            transition: .2s ease-in-out;
+            line-height: 34px;
+            animation: forwards fadeInOut 3s ease-in-out;
+            color: fade(@color-blue, 70%);
+        }
+    }
+
+    &__btn{
+        float: right;
+        font-size: @font-size-xs;
+        padding: 9px 53px;
+    }
+    &__see-dtls{
+        color: @color-blue;
+        cursor: pointer;
+        font-size: @font-size-2xs;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    &__dtls{
+        font-size: @font-size-xs;
+        margin: 15px 0;
+        position: relative;
+        display: none;
+
+        &-inr{
+            background-color: @bg-color;
+            padding: 15px;
+        }
+        &-item{
+            line-height: 1.5;
+            & + &{
+                margin-top: 5px;
+            }
+        }
+    }
+    & + &{
+        border-top: 1px solid @border-color;
+    }
+}
+
+.ofr{
+    &-fltrs{
+        color: @fg-color-light;
+        padding: 13px 20px;
+        border-bottom: 1px solid @border-color;
+        font-size: 0;
+        position: relative;
+        .user-select();
+
+        &__ttl{
+            font-size: @font-size-xs;
+            font-weight: @bold;
+            float: left;
+            margin-top: 9px;
+        }
+        &__item{
+            border-radius: 3px;
+            border:1px solid @border-color;
+            padding: 8px;
+            font-size: @font-size-xs;
+            display: inline-block;
+            line-height: 15px;
+            cursor: pointer;
+            transition: .25s ease-in-out;
+
+            & + &{
+                margin-left: 10px;
+            }
+            &-txt{
+                vertical-align: middle;
+            }
+            &:before{
+                display: inline-block;
+                .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/checkbox-empty.png', 14px);
+                width: 14px;
+                height: 14px;
+                content: '';
+                vertical-align: middle;
+                margin-right: 4px;
+            }
+            &:not(&--actv):hover{
+                &:before{
+                    .image-2x('http://assets.mspcdn.net/f_auto/bonus_in/checkbox-ticked.png', 14px);
+                    opacity: .3;
+                }
+            }
+            &--actv{
+                border-color: @color-blue-light;
+                background-color: fade(@color-blue-light, 10%);
+                &:before{
+                    .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/checkbox-ticked.png', 14px);
+                }
+            }
+        }
+        &-wrpr{
+            float: left;
+            margin-left: 15px;
+        }
+        &__more{
+            float: left;
+            color: @color-blue;
+            font-size: @font-size-xs;
+            margin-top: 9px;
+            font-weight: @bold;
+            margin-left: 15px;
+            cursor: pointer;
+            &-txt{
+                display: inline-block;
+                vertical-align: middle;
+            }
+            &:before{
+                .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/plus.png', 16px);
+                content: '';
+                width: 16px;
+                height: 16px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        &__less{
+            &:before{
+                .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/minus.png', 16px);
+            }
+        }
+        &-drpdwn{
+            position: absolute;
+            background-color: @color-white;
+            padding: 15px;
+            right: 20px;
+            top: 60px;
+            box-shadow: 0 2px 4px rgba(0,0,0,.3);
+            z-index: 2;
+            width: 354px;
+            border-radius: 0 0 3px 3px;
+            display: none;
+            &__item{
+                font-size: @font-size-xs;
+                display: inline-block;
+                width: 50%;
+                line-height: 15px;
+                cursor: pointer;
+                &-txt{
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                &:before{
+                    content: '';
+                    display: inline-block;
+                    .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/checkbox-empty.png', 14px);
+                    width: 14px;
+                    height: 14px;
+                    content: '';
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+                &:nth-child(n+3){
+                    margin-top: 15px;
+                }
+                &:not(&--actv):hover{
+                    &:before{
+                        .image-2x('http://assets.mspcdn.net/f_auto/bonus_in/checkbox-ticked.png', 14px);
+                        opacity: .3;
+                    }
+                }
+                &--actv{
+                    font-weight: @semi-bold;
+                    &:before{
+                        .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/checkbox-ticked.png', 14px);
+                    }
+                }
+            }
+        }
+    }
+}

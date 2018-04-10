@@ -7,6 +7,18 @@
 .sctn{
     border-bottom: 1px solid @border-color;
     background-color: @color-white;
+    &__ttl{
+        font-size: @font-size-2xl;
+    }
+    &__inr{
+        padding: 20px;
+    }
+    &__body{
+        color: @fg-color-light;
+        line-height: 20px;
+        margin-top: 10px;
+        font-size: @font-size-xs;
+    }
 }
 
 .algn{
@@ -46,6 +58,12 @@
     &--blk{
         color: @fg-color;
     }
+    &--gry{
+        color: @fg-color-light;
+    }
+    &--strk{
+        text-decoration: line-through;
+    }
 }
 
 .to-top{
@@ -71,5 +89,156 @@
 
 @keyframes zoomIn {
     0% { transform: scale(1,1); }
-  100% { transform: scale(12,12); }
+  100% { transform: scale(9,9); }
+}
+
+
+.dummy{
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    left: -9999px;
+}
+
+.hero{
+    display: none;
+}
+
+li{
+    &:before{
+        content: '\2022';
+        color: @fg-color-light;
+        margin-right: 8px;
+    }
+}
+
+
+.tltp
+{
+    font-size: @font-size;
+    line-height: 13px;
+
+    position: absolute;
+
+    display: inline-block;
+
+    max-width: 300px;
+    padding: 5px 8px;
+
+    animation-name: fadeInUp;
+    animation-duration: .25s;
+
+    color: white;
+    border-radius: 2px;
+    background-color: @color-black-light;
+    box-shadow: 0 0 2px rgba(3, 3, 5, 0);
+
+    animation-fill-mode: both;
+    &:before
+    {
+        position: absolute;
+
+        width: 0;
+        height: 0;
+
+        content: '';
+
+        border: .65em solid transparent;
+    }
+    &--top-left:before
+    {
+        bottom: -13px;
+        left: 4px;
+
+        border-top: 8px solid @color-black-light;
+    }
+    &--top-rght:before
+    {
+        right: 2px;
+        bottom: -14px;
+
+        border-top: 7px solid @color-black-light;
+    }
+    &--btm-left:before
+    {
+        top: -14px;
+        left: 4px;
+
+        border-bottom: 7px solid @color-black-light;
+    }
+    &--left:before
+    {
+        right: -15px;
+        bottom: 5px;
+
+        border: .5em solid transparent;
+        border-left: 8px solid @color-black-light;
+    }
+    &--btm-rght:before
+    {
+        top: -14px;
+        right: 4px;
+
+        border-bottom: 7px solid @color-black-light;
+    }
+    &--wht
+    {
+        background-color: @color-white;
+        &:after
+        {
+            position: absolute;
+
+            width: 0;
+            height: 0;
+
+            content: '';
+
+            border: .8em solid transparent;
+        }
+        &.tltp--top-left:after
+        {
+            bottom: -14px;
+            left: 2px;
+
+            border-top: 7px solid @color-white;
+        }
+        &.tltp--top-rght:after
+        {
+            right: 2px;
+            bottom: -14px;
+
+            border-top: 7px solid @color-white;
+        }
+        &.tltp--btm-left:after
+        {
+            top: -14px;
+            left: 2px;
+
+            border-bottom: 7px solid @color-white;
+        }
+        &.tltp--btm-rght:after
+        {
+            top: -14px;
+            right: 2px;
+
+            border-bottom: 7px solid @color-white;
+        }
+    }
+}
+
+
+@keyframes fadeInOut
+{
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

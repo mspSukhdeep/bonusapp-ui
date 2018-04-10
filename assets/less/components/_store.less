@@ -1,0 +1,130 @@
+.str{
+    &-top{
+        background-color: @color-white;
+        padding: 20px;
+        border-bottom: 1px solid @border-dark;
+
+        &__img{
+            max-width: 140px;
+            .absolute-center();
+            &-wrpr{
+                float: left;
+                width: 240px;
+                height: 80px;
+                position: relative;
+            }
+        }
+        &__main{
+            padding-bottom: 20px;
+        }
+        &__txt{
+            float: left;
+            width: 465px;
+        }
+        &__ttl{
+            color: @fg-color-light;
+            font-weight: @bold;
+            line-height: 24px;
+        }
+        &__cb{
+            margin-top: 10px;
+            color: @color-green;
+            font-weight: @bold;
+            .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/icon/coin.png', 18px);
+            background-position: left center;;
+            padding-left: 26px;
+        }
+        &__btn{
+            width: 180px;
+            text-align: center;
+            font-size: @font-size-xs;
+            float: right;
+            margin-top: 22px;
+        }
+        &__dscrptn{
+            border-top: 1px solid @border-color;
+            line-height: 20px;
+            color: @fg-color-light;
+            padding-top: 20px;
+        }
+    }
+    &-slab{
+        width: 100%;
+        border-radius: 3px;
+
+        box-sizing: border-box;
+        margin-top: 15px;
+        &__top{
+            padding: 20px;
+        }
+        &__img{
+            float: left;
+            max-width: 24px;
+            max-height: 24px;
+        }
+        &__txt{
+            float: left;
+            width: 236px;
+            padding-left: 20px;
+        }
+        &__ttl{
+            font-weight: @bold;
+            color: @fg-color-light;
+        }
+        &__cb{
+            margin-top: 8px;
+            color: @color-green;
+            font-weight: @bold;
+            font-size: @font-size-xs;
+        }
+        &__btm{
+            border-top: 1px dashed @border-color;
+            text-align: right;
+            padding: 10px;
+            position: relative;
+        }
+        &__bdg{
+            position: absolute;
+            background-color: @color-blue-light;
+            color: @color-white;
+            padding: 3px 10px;
+            font-size: @font-size-2xs;
+            font-weight: @bold;
+            left: 0;
+            border-radius: 0 3px 3px 0;
+            top: 18px;
+        }
+    }
+    &-stat{
+        width: 100%;
+        border-radius: 3px;
+        margin-top: 15px;
+
+        &__ttl{
+            margin-top: 30px;
+        }
+        &__item{
+            padding: 17px 20px;
+            color: @fg-color-light;
+
+            & + &{
+                border-top: 1px solid @border-color;
+            }
+        }
+        &__prop{
+            font-size: @font-size-xs;
+        }
+        &__val{
+            margin-top: 10px;
+            font-weight: @bold;
+        }
+        &__info{
+            font-size: @font-size-xl;
+            font-family: times;
+            font-style: italic;
+            margin-left: 8px;
+            color: @color-blue;
+            cursor: pointer;
+        }
+    }
+}

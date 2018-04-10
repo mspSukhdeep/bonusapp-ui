@@ -47,6 +47,13 @@
         margin-top: 20px;
         position: relative;
         display: none;
+        &__msg-box{
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 95px;
+            display: none;
+        }
         &__bnk-frm{
             margin-bottom: 15px;
         }
@@ -91,14 +98,14 @@
         &__thumb{
             position: absolute;
             .absolute-center();
-            width: 4px;
-            height: 4px;
+            width: 2px;
             animation: zoomIn 3s ease-in-out 1 forwards;
         }
-        &__otp{
-            text-align: center;
+        &__mob{
             padding: 20px;
             padding: 80px 0 45px 0;
+            text-align: center;
+
             &-inpt{
                 border: 0;
                 background:none;
@@ -106,10 +113,32 @@
                 font-size: @font-size-xl;
                 color: @fg-color-light;
                 padding: 5px;
+                letter-spacing: 5px;
+                font-weight: @bold;
+                width: 175px;
+                margin-bottom: 20px;
+            }
+        }
+        &__otp{
+            text-align: center;
+            padding: 20px;
+            padding: 80px 0 42px 0;
+            &-inpt{
+                border: 0;
+                background:none;
+                border-bottom: 2px solid @border-color;
+                font-size: @font-size-xl;
+                line-height: 26px;
+                color: @fg-color-light;
+                padding: 5px;
                 letter-spacing: 20px;
                 font-weight: @bold;
                 width: 175px;
                 margin-bottom: 20px;
+                &::-webkit-input-placeholder {
+                  color: @border-color;
+                  letter-spacing: 24px;
+                }
             }
         }
         &__arw{

@@ -1,0 +1,34 @@
+@item-width: 480px;
+@item-height: 240px;
+
+.sldr{
+    float: left;
+    width: 660px;
+    background-color: fade(@color-green,10%);
+    height: 302px;
+    box-shadow: inset -2px 0 4px 1px rgba(0,0,0,.05);
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+
+    &__bnr{
+        display: block;
+    }
+    &__item{
+        position: absolute;
+        width: @item-width;
+        height: @item-height;
+        transform: translateX(100%);
+        &:first-child{
+            transform: translateX(0);
+        }
+
+        &-wrpr{
+            position: absolute;
+        }
+    }
+    &--l{
+        width: 100%;
+        float: none;
+    }
+}

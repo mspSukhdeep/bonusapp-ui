@@ -1,5 +1,24 @@
 .prfl{
     padding: 30px;
+    margin-top: 10px;
+    min-height: 80px;
+    &--ldng{
+        background: linear-gradient(to right, #f6f7f9 0%, #e9ebee 20%, #f6f7f9 40%, #f6f7f9 100%);
+        background-size: 400% 400%;
+        animation: rotate-bg 1s ease infinite;
+        position: relative;
+        overflow: hidden;
+        &:after{
+            position: absolute;
+            left: 0;
+            top:0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/shell/desktop_profile.png', 100%);
+            background-position: center center;
+        }
+    }
     &__rght{
         float: right;
         margin-top: 17px;
@@ -21,6 +40,7 @@
         vertical-align: middle;
         text-align: center;
         text-transform: uppercase;
+        cursor: pointer;
 
         &__txt{
             font-weight: @semi-bold;
@@ -51,7 +71,8 @@
         float: left;
         width: 712px;
         border-left: 1px solid @border-color;
-        min-height: 392px;
+        min-height: 510px;
+        position: relative;
     }
     &-sctn{
         padding: 15px;
@@ -69,7 +90,21 @@
     &-tbl{
         clear: both;
         margin-top: 15px;
-
+        &__txt{
+            &-cncld{
+                text-decoration: line-through;
+                margin-right: 5px;
+                font-size: @font-size-xs;
+            }
+        }
+        &__info{
+            font-size: @font-size-xs;
+            color: @fg-color-light;
+            font-weight: @normal;
+            & + &{
+                margin-top: 5px;
+            }
+        }
         &__hd{
             font-size: @font-size-s;
             background-color: @bg-color;
@@ -86,17 +121,44 @@
                 width: 25%;
             }
         }
+        &__issue{
+            float: left;
+            width: 37.5%;
+            &-ttl{
+                font-weight: @bold;
+                margin-bottom: 5px;
+            }
+        }
+        &__lng-dsc{
+            float: left;
+            width: 37.5%;
+            &--txt{
+                line-height: 20px;
+                font-size: @font-size-xs;
+            }
+        }
         &__cb{
             float: left;
             width: 17%;
             margin-right: 5%;
-            text-align: center;
+            text-align: right;
+            &--sub{
+                font-size: @font-size-2xs;
+                margin-top: 2px;
+            }
         }
         &__entry{
             float: left;
-            width: 42%;
+            width: 40%;
             &--l{
                 width: 52%;
+            }
+            &-txt{
+                margin-bottom: 5px;
+            }
+            &-info{
+                font-size: @font-size-xs;
+                color: @fg-color-light;
             }
         }
         &__clicks{
@@ -106,7 +168,7 @@
         }
         &__exp-date{
             float: left;
-            width: 14%;
+            width: 16%;
             margin-right: 2%;
         }
         &__dscrptn{
@@ -119,28 +181,52 @@
             color: @fg-color-light;
             font-size: @font-size-xs;
             margin-top: 4px;
+            &:before{
+                content: '';
+                width: 8px;
+                height: 8px;
+                margin: 5px 5px 0 0;
+                border-radius: 50%;
+                float: left;
 
+            }
             &--pndng{
                 &:before{
-                    content: '';
-                    width: 8px;
-                    height: 8px;
-                    margin: 5px 5px 0 0;
-
                     background-color: @color-golden;
-                    border-radius: 50%;
-                    float: left;
+                }
+            }
+            &--clsd{
+                &:before{
+                    background-color: @color-green-yellow;
+                }
+            }
+            &--fld{
+                &:before{
+                    background-color: @color-red;
                 }
             }
         }
         &__row{
             padding: 20px 13px;
-            color: @fg-color-light;
+            color: @fg-color;
             text-transform: capitalize;
 
             & + &{
                 border-top:1px solid @border-color;
             }
+            &--cncld{
+                .image-2x('https://assets.mspcdn.net/f_auto/bonus_in/stamp/cancel.png', 60px);
+                background-position: right bottom;
+            }
         }
+    }
+}
+
+@keyframes rotate-bg {
+    0% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
     }
 }

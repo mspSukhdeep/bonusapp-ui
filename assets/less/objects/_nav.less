@@ -1,0 +1,119 @@
+.nav{
+    &-main{
+        width: 340px;
+        float: left;
+        &__item{
+            float: left;
+            width: 150px;
+            line-height: 40px;
+            color: @fg-color-light;
+            font-size: @font-size-xs;
+            margin-left: 20px;
+            transition: .25s ease-in-out;
+            cursor: pointer;
+            position: relative;
+
+            &:before{
+                content: '';
+                float: left;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+                background: fade(@color-grey-2,10%);
+            }
+            &:hover{
+                // transform: translate(1px,1px);
+                color: @fg-color;
+                &:after{
+                    transform: scale(1.08);
+                }
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                left: 10px;
+                width: 20px;
+                height: 20px;
+                top:10px;
+                background: url(https://assets.mspcdn.net/image/sprite/q_auto/cb_category_spriteV3.png) center / 20px no-repeat;
+                transition: .25s ease-in-out;
+            }
+            &:nth-child(n+3){
+                margin-top: 18px;
+            }
+            &--food{
+                &:after{
+                    background-position: 0 -41px;
+                }
+            }
+            &--fashion{
+                &:after{
+                    background-position: 0 -21px;
+                }
+            }
+            &--travel{
+                &:after{
+                    background-position: 0 -208px;
+                }
+            }
+            &--health{
+                &:after{
+                    background-position: 0 -83px;
+                }
+            }
+            &--recharge{
+                &:after{
+                    background-position: 0 -187px;
+                }
+            }
+            &--nearby{
+                &:after{
+                    background-position: 0 -102px;
+                }
+            }
+            &--electronics{
+                &:after{
+                    background-position: 0 0;
+                }
+            }
+            &--movies{
+                &:after{
+                    background-position: 0 -145px;
+                }
+            }
+            &--grocery{
+                &:after{
+                    background-position: 0 -61px;
+                }
+            }
+            &--other{
+                &:after{
+                    background-position: 0 -125px;
+                }
+            }
+
+        }
+    }
+
+    &-top{
+        background-color: @color-white;
+        padding: 12px 0;
+        font-weight: @bold;
+        border-bottom: 1px solid @border-dark;
+
+        &__item{
+            color: @fg-color-light;
+            &:hover{
+                text-decoration: none;
+            }
+            & + &{
+                margin-left: 40px;
+            }
+        }
+        &__wrpr{
+            width: 1000px;
+            margin: 0 auto;
+        }
+    }
+}

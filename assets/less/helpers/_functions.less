@@ -66,3 +66,41 @@
 
     margin: auto;
 }
+
+.preload(@list...) {
+  &:before {
+    position: absolute;
+
+    visibility: hidden;
+
+    content: '';
+    .bgImageCSS();
+  }
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (   min--moz-device-pixel-ratio: 2),
+    only screen and (        min-device-pixel-ratio: 2),
+    only screen and (                min-resolution: 192dpi),
+    only screen and (                min-resolution: 2dppx) {
+    &:before {
+      .bgImageCSS(~"@2x");
+    }
+  }
+
+  .bgImageCSS(@suffix: ~"", @i: length(@list)) when (@i > 0) {
+    .bgImageCSS(@suffix, @i - 1);
+
+    @url: extract(@list, @i);
+    @filename  : ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(@{url})[1]`;
+    @extension : ~`/(.*)\.(jpg|jpeg|png|gif)/.exec(@{url})[2]`;
+    @src: ~`"url(@{filename}@{suffix}.@{extension})"`;
+
+    background-image+: @src;
+  }
+}
+
+.transform(...) {
+    -webkit-transform: @arguments;
+        -ms-transform: @arguments;
+            transform: @arguments;
+}
