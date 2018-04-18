@@ -1,6 +1,18 @@
 var PARAMS = {
         "API": {
-            "OFFERS": "https://www.bonusapp.in/cashback/offers.php"
+            "OFFERS": "https://www.bonusapp.in/cashback/offers.php",
+            "STORES": "https://api.mysmartprice.com/v3/cashback/get_stores.php"
+        },
+        "data": {
+            "stores": []
+        },
+        "meta": {
+            "page": {
+                "type": $(".wrpr").data("page-type"),
+                "storeName": $(".wrpr").data("store-name"),
+                "categoryName": $(".wrpr").data("category-name"),
+                "subCategoryName": $(".wrpr").data("subcategory-name")
+            }
         }
 }
 
@@ -9,9 +21,6 @@ var fetchFilteredData = MSP.utils.memoize(function(resourceURL) {
 
     $.ajax({
         url: resourceURL,
-        xhrFields: {
-            withCredentials: true
-        }
     }).done(function(response) {
         dfd.resolve(response);
     }).fail(function(error) {
@@ -74,7 +83,9 @@ $(".js-img-sldr").each(function() {
 });
 
 function fetchDataAJAX(){
-    var filterData = {},
+
+    var dfd = $.Deferred(),
+        filterData = {},
         fetchURL;
 
     $(".js-fltr").each(function(){
@@ -94,9 +105,16 @@ function fetchDataAJAX(){
                 break;
             }
     });
+    filterData.offset = $(".ofr-tile").length;
+    filterData.pageInfo = PARAMS.meta.page;
 
     fetchURL = PARAMS.API.OFFERS+"?"+$.param(filterData);
-    fetchFilteredData(fetchURL);
+
+    fetchFilteredData(fetchURL).done(function(response){
+        dfd.resolve(response);
+    });
+
+    return dfd.promise();
 }
 
 $doc.on("click", ".js-fltr-item", function() {
@@ -138,10 +156,62 @@ $doc.on("click", ".js-more-fltrs", function(e) {
 });
 
 $doc.on("click", "body", function(e) {
-
+    // $(".js-more-fltrs").click();
 });
 
 
 $doc.on("focus",".js-srch-inpt", function(){
-
+    fetchFilteredData(PARAMS.API.STORES);
 });
+
+
+$doc.on("keyup",".js-srch-inpt", function(){
+    var searchWord = $(this).val().toLowerCase();
+
+    if(!searchWord){
+        $(".js-srch-drpdwn").slideUp("fast");
+        $(".js-ovrly").fadeOut("fast");
+    }
+    else{
+        fetchFilteredData(PARAMS.API.STORES).done(function(response){
+            var filteredCount = 0;
+
+            var searchResult = response.stores.filter(function(store){
+                if(store.store_name.toLowerCase().indexOf(searchWord)>-1 && filteredCount<5){
+                    filteredCount++;
+                    return true;
+                }
+            }),
+            $searchDom = "";
+
+            searchResult.map(function(item, index){
+                $searchDom += '<a class="hdr-srch__item clearfix" href="/store/'+item.store_name.toLowerCase()+'" target="_blank">\
+                                    <img src="https://res.cloudinary.com/mspassets/w_48,h_48,c_pad,b_white,f_auto,q_auto/CB_Fav_Icons/'+item.store_name.toLowerCase()+'.png" class="hdr-srch__item-img" />\
+                                    <div class="hdr-srch__item-txt">\
+                                        '+item.store_name+'\
+                                    </div>\
+                                    <div class="hdr-srch__item-cb">\
+                                        '+item.generic_text+'\
+                                    </div>\
+                                    <div class="hdr-srch__item-ofrs">\
+                                        '+item.offers_count+' Offers\
+                                    </div>\
+                                </a>';
+            });
+
+            $(".js-srch-drpdwn").html($searchDom).slideDown("fast");
+
+        });
+    }
+});
+
+
+$doc.on("click", ".js-load-more", function(){
+    var _this = $(this);
+    _this.hide();
+
+    fetchDataAJAX().done(function(response){
+        $(".ofr-tile-wrpr").append(response);
+        _this.show();
+    });
+})
