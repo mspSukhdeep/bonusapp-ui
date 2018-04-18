@@ -2,13 +2,19 @@
     &-main{
         width: 340px;
         float: left;
+        &__link{
+            &:nth-child(n+3){
+                margin-top: 18px;
+            }
+            margin-left: 20px;
+            float: left;
+        }
         &__item{
             float: left;
             width: 150px;
             line-height: 40px;
             color: @fg-color-light;
             font-size: @font-size-xs;
-            margin-left: 20px;
             transition: .25s ease-in-out;
             cursor: pointer;
             position: relative;
@@ -43,9 +49,6 @@
                 top:10px;
                 background: url(https://assets.mspcdn.net/image/sprite/q_auto/cb_category_spriteV3.png) center / 20px no-repeat;
                 transition: .25s ease-in-out;
-            }
-            &:nth-child(n+3){
-                margin-top: 18px;
             }
             &--food{
                 &:after{

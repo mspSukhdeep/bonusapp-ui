@@ -1,6 +1,6 @@
 var PARAMS = {
         "API": {
-            "OFFERS": "https://www.bonusapp.in/cashback/offers.php",
+            "OFFERS": "https://www.bonusapp.in/cashback/offers_test.php",
             "STORES": "https://api.mysmartprice.com/v3/cashback/get_stores.php"
         },
         "data": {
@@ -105,7 +105,7 @@ function fetchDataAJAX(){
     });
     filterData.offset = $(".ofr-tile").length;
     filterData = $.extend({}, filterData, PARAMS.meta);
-    
+
     fetchURL = PARAMS.API.OFFERS+"?"+$.param(filterData);
 
     fetchFilteredData(fetchURL).done(function(response){
@@ -129,7 +129,6 @@ $doc.on("click", ".js-fltr-item", function() {
             $(this).toggleClass(baseClass+"--actv");
             break;
     }
-
     fetchDataAJAX();
 });
 
