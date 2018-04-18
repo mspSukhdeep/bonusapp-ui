@@ -7,12 +7,10 @@ var PARAMS = {
             "stores": []
         },
         "meta": {
-            "page": {
-                "type": $(".wrpr").data("page-type"),
+                "pageType": $(".wrpr").data("page-type"),
                 "storeName": $(".wrpr").data("store-name"),
                 "categoryName": $(".wrpr").data("category-name"),
                 "subCategoryName": $(".wrpr").data("subcategory-name")
-            }
         }
 }
 
@@ -106,8 +104,8 @@ function fetchDataAJAX(){
             }
     });
     filterData.offset = $(".ofr-tile").length;
-    filterData.pageInfo = PARAMS.meta.page;
-
+    filterData = $.extend({}, filterData, PARAMS.meta);
+    
     fetchURL = PARAMS.API.OFFERS+"?"+$.param(filterData);
 
     fetchFilteredData(fetchURL).done(function(response){
