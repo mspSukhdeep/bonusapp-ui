@@ -21,10 +21,15 @@
                 border-radius: 50%;
                 margin-right: 10px;
                 background: fade(@color-grey-2,10%);
+                transition: .25s ease-in-out;
             }
             &:hover{
                 // transform: translate(1px,1px);
                 color: @fg-color;
+                font-weight: @semi-bold;
+                &:before{
+                    background: fade(@color-grey-2,20%);
+                }
                 &:after{
                     transform: scale(1.08);
                 }
@@ -89,7 +94,7 @@
             }
             &--other{
                 &:after{
-                    background-position: 0 -125px;
+                    background-position: 0 -124px;
                 }
             }
 

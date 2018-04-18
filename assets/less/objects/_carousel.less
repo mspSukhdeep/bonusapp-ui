@@ -66,6 +66,7 @@
 
             .absolute-center();
             transition: .2s ease-in-out;
+            border-radius: 3px;
             &:hover{
                 transform: scale(1.03);
             }
@@ -98,9 +99,11 @@
     width: 480px;
     height: @image-height;
     padding: 20px 0 0 20px;
+    opacity: .6;
 
     .transform(translateX(200%));
     transition-timing-function: ease-in-out;
+    // transition: .25s ease-in-out;
     .show {
         display: block;
     }
@@ -123,6 +126,8 @@
     }
     &.mCycleItemCurrent {
         .transform(translateX(0));
+        transition: .25s ease-in-out;
+        opacity: 1;
     }
     &.mCycleItemCurrent {
         left: 0;

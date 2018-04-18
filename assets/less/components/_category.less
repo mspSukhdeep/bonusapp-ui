@@ -63,6 +63,7 @@
         width: 179px;
         font-size: 0;
         border-radius: 3px;
+        transition: .25s ease-in-out;
 
         &__img{
             vertical-align: middle;
@@ -78,6 +79,15 @@
         }
         & + &{
             margin-left: 16px;
+        }
+        &:hover{
+            transform: scale(1.05);
+        }
+        &:nth-child(5n+1){
+            margin-left: 0;
+        }
+        &:nth-child(n+5){
+            margin-top: 20px;
         }
     }
 }
