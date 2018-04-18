@@ -94,12 +94,13 @@ function fetchDataAJAX(){
                 filterData.coupon = $(this).find(".ctgry-optns__item--actv").data("value");
                 break;
             case "bank":
-                filterData.bank = [];
+                bankArray = [];
 
                 $(this).find(".ofr-fltrs__item--actv, .ofr-fltrs-drpdwn__item--actv").each(function() {
-                    filterData.bank.push($(this).data("value"));
+                    bankArray.push($(this).data("value"));
                 });
 
+                filterData.bankOffers = bankArray.join("|");
                 break;
             }
     });
