@@ -1,0 +1,166 @@
+.rfr{
+    padding: 30px 0;
+    text-align: center;
+    width: 480px;
+    margin: 0 auto;
+
+    &__ttl{
+        font-size: @font-size-4xl;
+        line-height: 32px;
+        font-weight: @bold;
+        color: @fg-color-light;
+
+        &-sub{
+            color:@color-grey;
+            margin-top: 10px;
+            font-size: @font-size-xl;
+            line-height: 23px;
+        }
+    }
+    &__wrk{
+        color: @color-blue;
+        margin-top: 10px;
+        cursor: pointer;
+        font-size: @font-size-2xs;
+
+        &:hover{
+            text-decoration: underline;
+        }
+        &-cls{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            text-align: center;
+            font-size: @font-size;
+            color: @fg-color-light;
+            cursor: pointer;
+        }
+        &-info{
+            display: none;
+            margin-top: 20px;
+            position: relative;
+            background-color: fade(@color-blue, 10%);
+            border:1px solid fade(@color-blue, 20%);
+            padding: 13px 15px;
+            color: @fg-color-light;
+            border-radius: 3px;
+            width: 100%;
+            text-align: left;
+            counter-reset: info-item;
+        }
+        &-item{
+            line-height: 19px;
+            font-size: @font-size-xs;
+            &:before{
+                counter-increment: info-item;
+                content: counter(info-item) ".";
+                font-weight: @bold;
+            }
+            & + &{
+                margin-top: 5px;
+            }
+        }
+    }
+    &__img{
+        width: 160px;
+        margin-top: 40px;
+    }
+    &__lnk{
+            border: 1px solid @color-blue-light;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 13px;
+            transition: .2s ease-in;
+            overflow: hidden;
+            background-color: @bg-color;
+            cursor: text;
+
+        &-txt{
+            float: left;
+            padding: 8px 13px 8px 10px;
+            line-height: 23px;
+            font-size: @font-size-xl;
+        }
+        &-btn{
+            float: left;
+            width: 92px;
+            color: @color-white;
+            font-size: @font-size;
+            line-height: 18px;
+            background-color: @color-blue-light;
+            padding: 11px 0;
+            transition: .2s ease-in;
+            .user-select();
+        }
+        &-hd{
+            margin-top: 40px;
+            color: @color-grey;
+            font-size: @font-size-xs;
+        }
+        &:hover{
+            cursor: pointer;
+            border-color: darken(@color-blue-light, 5%);
+
+            .rfr__lnk-btn{
+                background-color: darken(@color-blue-light, 5%);
+            }
+        }
+    }
+    &__optn{
+        width: 48px;
+        transition: .2s ease-in;
+        margin: 0 20px;
+        cursor: pointer;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+        &-hd{
+            margin-top: 28px;
+            color: @color-grey;
+        }
+        &-wrpr{
+            margin-top: 20px;
+        }
+    }
+    &__tbl{
+        margin-top: 60px;
+
+        &-hd{
+            color: @fg-color;
+            font-size: @font-size-xl;
+            line-height: 21px;
+            font-weight: @bold;
+        }
+        &-body{
+            margin-top: 28px;
+            border-top: 1px solid @border-color;
+        }
+        &-row{
+            border-bottom: 1px solid @border-color;
+            padding: 15px 10px;
+            color: @color-grey-2;
+            font-size: @font-size-xs;
+        }
+        &-usr{
+            float: left;
+            color: @fg-color-light;
+            font-size: @font-size;
+            line-height: 18px;
+            
+        }
+        &-sts{
+            float: right;
+            text-align: right;
+            color: @color-green;
+            font-size: @font-size;
+            line-height: 18px;
+            font-weight: @bold;
+
+        }
+
+    }
+}

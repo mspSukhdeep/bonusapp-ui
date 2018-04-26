@@ -64,14 +64,22 @@
 					</button>
 					</div>
 					<div class="list list--s">
-						<button class="list-item ripple ripple--l js-load-page" data-view="claims">
-						<img class="list-item__img" src="https://assets.mspcdn.net/f_auto/bonus_in/icon/flag.png" />
-						<div class="list-item__info">
-							<div class="list-item__txt">
-								Claims & Issues
+						<button class="list-item ripple ripple--l js-load-page" data-view="refer">
+							<img class="list-item__img list-item__img--2" src="https://assets.mspcdn.net/f_auto/bonus_in/icon/refer.png" />
+							<div class="list-item__info">
+								<div class="list-item__txt">
+									Refer
+								</div>
 							</div>
-						</div>
-					</button>
+						</button>
+						<button class="list-item ripple ripple--l js-load-page" data-view="claims">
+							<img class="list-item__img" src="https://assets.mspcdn.net/f_auto/bonus_in/icon/flag.png" />
+							<div class="list-item__info">
+								<div class="list-item__txt">
+									Claims & Issues
+								</div>
+							</div>
+						</button>
 						<button class="list-item ripple ripple--l js-load-page" data-view="how-it-works">
 						<img class="list-item__img" src="https://assets.mspcdn.net/f_auto/bonus_in/icon/info.png" />
 						<div class="list-item__info">
@@ -107,5 +115,6 @@
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/msp.js"></script>
 <script src="assets/js/profile.js"></script>
+<script src="assets/js/bonus.js"></script>
 
 </html>

@@ -68,6 +68,15 @@ var modal = {
             "require": [
                 "profile"
             ]
+        },
+        {
+            "view": "refer",
+            "component": "refer.html",
+            "path": "/me/refer",
+            "require": [
+                "profile",
+                "refer"
+            ]
         }
     ],
     "resource": {
@@ -75,7 +84,8 @@ var modal = {
         "passbook": "me/page_info.php?function=passbook&format=2&page=1",
         "activity": "me/page_info.php?function=activity_details&format=2&page=1",
         "redeem": "me/page_info.php?function=redemption_slabs&format=2&page=1",
-        "claims": "me/page_info.php?function=claims_issues&format=2&page=1"
+        "claims": "me/page_info.php?function=claims_issues&format=2&page=1",
+        "refer": "me/refer.php"
     },
     "store": {
         "profile": {
@@ -340,7 +350,8 @@ var modal = {
             "meta": {
                 "formData": {}
             }
-        }
+        },
+        "refer": {}
     },
     "dom": {
         "$viewWrapper": $(".js-tab-cntnr"),
@@ -690,6 +701,8 @@ function renderDependencyView(view) {
         case "claims":
             getClaimsHistory(modal.store.claims);
             break;
+        case "refer":
+            renderReferPage(modal.store.refer);
         default:
 
     }
@@ -745,6 +758,9 @@ function loadDependencies(dependencyArray, isUpdate) {
                 case "claims":
                 		response && (modal.store.claims.data = response.claims_history);
                     break;
+                case "refer":
+                    modal.store.refer = response;
+                    break;
                 default:
                     console.warn("Unknown Dependency Loaded");
             }
@@ -779,7 +795,7 @@ function loadView() {
     modal.dom.$viewWrapper.html(modal.dom.$loader);
     highlightActiveLink();
 
-    fetchPage(modal.state.component).done(function(viewDOM) {
+    fetchPage(modal.state.component+"?v="+Date.now()).done(function(viewDOM) {
         renderView(viewDOM);
         loadDependencies(modal.state.require);
     });
@@ -1654,3 +1670,85 @@ function scrollToLink(hashObj, onLoad) {
         });
     }
 };
+
+
+/* Refer Page Event Handlers */
+
+
+function renderReferPage(data){
+    $(".js-copy-cpn").data("link", data.link).find(".rfr__lnk-txt").text(data.link);
+
+    var $inviteTable = "";
+
+    if(data.inviteHistory && data.inviteHistory.length>0){
+        for(var i=0;i<data.inviteHistory.length;i++){
+            $inviteTable += '<div class="rfr__tbl-row clearfix">\
+                                <div class="rfr__tbl-usr">\
+                                    '+data.inviteHistory[i].name+'\
+                                </div>\
+                                <div class="rfr__tbl-sts">\
+                                    '+data.inviteHistory[i].status+'\
+                                </div>\
+                            </div>';
+        }
+    }
+    else{
+        $inviteTable += '<div class="rfr__tbl-row clearfix">\
+                            Your friends are yet to install the Bonusapp App\
+                        </div>';
+    }
+
+    $(".rfr__tbl-body").html($inviteTable);
+
+}
+var refLink = 'https://bonuapp.in/me/join.php?referre=abc';
+
+function getMessage(link, source){
+    link = link+'?utm_source='+source;
+
+    return 'Hi,\
+    \n\n\
+I would like to invite you to Bonusapp which has helped me to save plenty while shopping online.\n\
+You will get best price by comparing among 100+ stores and also additional cashback on every purchase.\
+\n\n\
+Join Bonusapp - ' + link + '\
+';
+}
+
+function getMessengerLink(link){
+    link = encodeURIComponent(link+'?utm_source=fb_msngr');
+    return 'https://www.facebook.com/dialog/send?app_id=253242341485828&link='+link+'&redirect_uri=http://www.mysmartprice.com/promotions/refer?utm_source=fb_msngr';
+}
+
+$doc.on("click",".js-copy-cpn", function(){
+    var refLink = $(this).data("link");
+
+    if(copyText(refLink)){
+        $(this).find(".rfr__lnk-btn").text("COPIED");
+    }
+});
+
+$doc.on("click",".js-tgl-ref", function(){
+    $(".rfr__wrk").toggle();
+    $(".rfr__wrk-info").slideToggle();
+});
+
+
+$doc.on("click",".js-rfr-wapp", function(){
+    var link = 'https://api.whatsapp.com/send?text='+encodeURIComponent(getMessage(refLink, "whatsapp"));
+    window.open(link,"_blank");
+});
+
+$doc.on("click",".js-rfr-fb", function(){
+    var link = getMessengerLink(refLink);
+    window.open(link,"_blank");
+});
+
+$doc.on("click",".js-rfr-mail", function(){
+    var subject = "Invitation to Join Bonusapp",
+        body = getMessage(refLink, "mail"),
+        cc = "refer@mysmartprice.com";
+
+    link = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body) + '&cc=' + encodeURIComponent(cc);
+    window.open(link,"_blank");
+});
