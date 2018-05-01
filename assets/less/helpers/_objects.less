@@ -1,3 +1,31 @@
+body {
+    &:after {
+        content: '';
+
+        background-color: transparent;
+
+        transition: background-color 0.2s;
+    }
+}
+
+.body {
+    &--ovrly {
+        overflow: hidden;
+
+        &:after {
+            z-index: 100;
+
+            position: fixed;
+            top: 60px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+    }
+}
+
 .wrpr{
     width: @wrapper-width;
     margin: 0 auto;
